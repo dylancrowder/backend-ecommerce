@@ -1,0 +1,58 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "My API",
+        "version": "1.0.0",
+        "description": "API documentation for my Express app"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/books": {
+            "get": {
+                "summary": "Obtiene una lista de libros",
+                "description": "Devuelve una lista de libros disponibles en la base de datos.",
+                "responses": {
+                    "200": {
+                        "description": "Lista de libros obtenida con éxito",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "description": "El ID del libro"
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "description": "El título del libro"
+                                    },
+                                    "author": {
+                                        "type": "string",
+                                        "description": "El autor del libro"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Mensaje de error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
